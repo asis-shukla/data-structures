@@ -17,6 +17,7 @@ def create_list(num):
         current = current.next
     return head
 
+
 def traverse_list(head):
     if head == None:
         return None
@@ -24,10 +25,32 @@ def traverse_list(head):
     while(current):
         print("data value is", current.data)
         current = current.next
+    print("********* Traverse complete ************")
+
 
 def delete_first_node(head):
-
+    # Check for null linked list
+    if head == None:
+        return None
+    head = head.next
     return head
 
+
+def delete_last_node(head):
+    if head == None:
+        return None
+    current = head
+
+    # Traverse till last - 1 node to remove last node
+    while(current.next.next != None):
+        current = current.next
+    current.next = None
+    return head
+
+
 h = create_list(10)
+traverse_list(h)
+h = delete_first_node(h)
+traverse_list(h)
+h = delete_last_node(h)
 traverse_list(h)
