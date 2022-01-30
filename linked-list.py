@@ -36,6 +36,17 @@ def delete_first_node(head):
     return head
 
 
+def delete_value_node(head, value):
+    if head == None:
+        return None
+    current = head
+    while(current.next and current.next.data != value ):
+        current = current.next
+    if current.next:
+        current.next = current.next.next
+    return head
+
+
 def delete_last_node(head):
     if head == None:
         return None
@@ -53,4 +64,6 @@ traverse_list(h)
 h = delete_first_node(h)
 traverse_list(h)
 h = delete_last_node(h)
+traverse_list(h)
+h = delete_value_node(h, 11)
 traverse_list(h)
